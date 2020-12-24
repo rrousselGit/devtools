@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'src/analytics/stub_provider.dart'
     if (dart.library.html) 'src/analytics/remote_provider.dart';
@@ -63,6 +64,13 @@ void main() async {
 
   // Now run the app.
   runApp(
-    DevToolsApp(defaultScreens, preferences, ideTheme, await analyticsProvider),
+    ProviderScope(
+      child: DevToolsApp(
+        defaultScreens,
+        preferences,
+        ideTheme,
+        await analyticsProvider,
+      ),
+    ),
   );
 }

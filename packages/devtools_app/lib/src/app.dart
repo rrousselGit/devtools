@@ -34,6 +34,7 @@ import 'notifications.dart';
 import 'performance/performance_controller.dart';
 import 'performance/performance_screen.dart';
 import 'preferences.dart';
+import 'riverpod/conditional_screen.dart';
 import 'scaffold.dart';
 import 'screen.dart';
 import 'snapshot_screen.dart';
@@ -510,4 +511,8 @@ List<DevToolsScreen> get defaultScreens => <DevToolsScreen>[
 //        createController: () => ExampleController(),
 //        supportsOffline: true,
 //      ),
+      const DevToolsScreen<void>(
+        RiverpodInspector(),
+        createController: null,
+      ),
     ];
